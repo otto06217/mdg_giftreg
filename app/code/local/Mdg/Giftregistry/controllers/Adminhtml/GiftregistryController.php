@@ -1,4 +1,5 @@
 <?php
+
 class Mdg_Giftregistry_Adminhtml_GiftregistryController extends Mage_Adminhtml_Controller_Action
 {
     public function indexAction()
@@ -10,11 +11,11 @@ class Mdg_Giftregistry_Adminhtml_GiftregistryController extends Mage_Adminhtml_C
 
     public function editAction()
     {
-        $id     = $this->getRequest()->getParam('id', null);
-        $registry  = Mage::getModel('mdg_giftregistry/entity');
+        $id = $this->getRequest()->getParam('id', null);
+        $registry = Mage::getModel('mdg_giftregistry/entity');
 
         if ($id) {
-            $registry->load((int) $id);
+            $registry->load((int)$id);
             if ($registry->getId()) {
                 $data = Mage::getSingleton('adminhtml/session')->getFormData(true);
                 if ($data) {
@@ -34,8 +35,7 @@ class Mdg_Giftregistry_Adminhtml_GiftregistryController extends Mage_Adminhtml_C
 
     public function saveAction()
     {
-        if ($this->getRequest()->getPost())
-        {
+        if ($this->getRequest()->getPost()) {
             try {
                 $data = $this->getRequest()->getPost();
                 $id = $this->getRequest()->getParam('id');
@@ -67,7 +67,7 @@ class Mdg_Giftregistry_Adminhtml_GiftregistryController extends Mage_Adminhtml_C
     public function massDeleteAction()
     {
         $registryIds = $this->getRequest()->getParam('registries');
-        if(!is_array($registryIds)) {
+        if (!is_array($registryIds)) {
             Mage::getSingleton('adminhtml/session')->addError(Mage::helper('mdg_giftregistry')->__('Please select one or more registries.'));
         } else {
             try {
@@ -78,7 +78,7 @@ class Mdg_Giftregistry_Adminhtml_GiftregistryController extends Mage_Adminhtml_C
                         ->delete();
                 }
                 Mage::getSingleton('adminhtml/session')->addSuccess(
-                Mage::helper('adminhtml')->__('Total of %d record(s) were deleted.', count($registryIds))
+                    Mage::helper('adminhtml')->__('Total of %d record(s) were deleted.', count($registryIds))
                 );
             } catch (Exception $e) {
                 Mage::getSingleton('adminhtml/session')->addError($e->getMessage());
