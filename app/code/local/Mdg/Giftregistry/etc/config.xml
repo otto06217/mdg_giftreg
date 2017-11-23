@@ -5,6 +5,13 @@
             <version>0.1.0</version>
         </Mdg_Giftregistry>
     </modules>
+    <phpunit>
+        <suite>
+            <modules>
+                <Mdg_Giftregistry/>
+            </modules>
+        </suite>
+    </phpunit>
     <global>
         <models>
         <mdg_giftregistry>
