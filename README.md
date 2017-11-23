@@ -1,2 +1,4 @@
-# mdg_giftreg
-=== From Alan MacGregor - Magento PHP Developer's Guide
+mdg_giftreg
+===========
+
+Gift Registry Module for the Magento Developers Guide
